@@ -1,0 +1,375 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header.ihsan-container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: #1caaea; */
+}
+
+header.ihsan-container .ihsan-header {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: #1caaea;
+    color: white;
+}
+
+.ihsan-navbar-container {
+    background-color: #1397d4;
+    padding: 5px;
+    position: sticky;
+    top: 0;
+
+    z-index: 999;
+}
+
+.ihsan-navbar-container .ihsan-nav-list {
+    display: flex;
+    gap: 4rem;
+    padding-inline: 4rem;
+    justify-content: center;
+}
+
+.navbar-container .nav-list li {
+    list-style-type: none;
+}
+
+.navbar-container .nav-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-container .nav-list li:hover a {
+    font-weight: 600;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+    gap: 1.5rem;
+    flex-direction: row;
+}
+
+main .content {
+    flex: 5;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem 2rem;
+}
+
+main .content #sejarah,
+main .content #visi-misi,
+main .content #geografi,
+main .content #demografi {
+    padding: 20px;
+    text-align: justify;
+}
+
+main .content .featured-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3px;
+}
+
+main .content #sejarah table {
+    border-spacing: 10px;
+    border-collapse: collapse;
+}
+
+main .content #sejarah tr.name {
+    border-bottom: 2px solid #021526;
+    color: #021526;
+    font-weight: 600;
+}
+
+main .content #sejarah th,
+main .content #sejarah td {
+    padding: 10px;
+}
+
+main .content #sejarah td {
+    text-align: center;
+}
+
+aside {
+    flex: 1;
+    position: sticky;
+    top: 85px;
+    height: fit-content;
+}
+
+aside #profile {
+    text-align: center;
+    padding: 20px;
+}
+
+aside #profile img {
+    max-width: 100%;
+}
+
+footer {
+    background-color: #1397d4;
+    color: white;
+    text-align: center;
+}
+
+.nav-list a.active {
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+.nav-list a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #1caaea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-top:hover {
+    background-color: #1397d4;
+    transform: translateY(-3px);
+}
+
+.wrapper {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.wrapper.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wrapper:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #1caaea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive improvements */
+@media screen and (max-width: 768px) {
+    .navbar-container .nav-list {
+        gap: 2rem;
+        padding-inline: 1rem;
+    }
+    
+    main {
+        flex-direction: column;
+    }
+    
+    aside {
+        position: static;
+    }
+}
+
+/* Responsive Navigation */
+@media screen and (max-width: 768px) {
+    .navbar-container .nav-list {
+        gap: 1rem;
+        padding-inline: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar-container .nav-list li {
+        margin: 5px 10px;
+    }
+}
+
+/* Tablet Responsive */
+@media screen and (max-width: 1024px) {
+    main {
+        padding: 15px;
+        gap: 1rem;
+    }
+
+    main .content {
+        flex: 3;
+    }
+
+    aside {
+        flex: 1;
+    }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    header.container .header {
+        padding: 10px;
+    }
+
+    header.container .header h1 {
+        font-size: 1.5rem;
+    }
+
+    header.container .header p {
+        font-size: 0.9rem;
+    }
+
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    main .content {
+        flex: 1;
+        width: 100%;
+    }
+
+    aside {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    aside #profile {
+        padding: 15px;
+    }
+
+    aside #profile img {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    main .content #sejarah,
+    main .content #visi-misi,
+    main .content #geografi,
+    main .content #demografi {
+        padding: 15px;
+    }
+
+    main .content #sejarah table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    main .content #sejarah td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    main .content .featured-img {
+        max-height: 200px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    header.container .header h1 {
+        font-size: 1.2rem;
+    }
+
+    header.container .header p {
+        font-size: 0.8rem;
+    }
+
+    .navbar-container .nav-list {
+        gap: 0.5rem;
+    }
+
+    .navbar-container .nav-list li a {
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 8px;
+    }
+
+    main .content #sejarah,
+    main .content #visi-misi,
+    main .content #geografi,
+    main .content #demografi {
+        padding: 12px;
+    }
+
+    main .content .featured-img {
+        max-height: 150px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    main .content #sejarah td {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+}
